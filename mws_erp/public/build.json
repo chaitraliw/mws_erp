@@ -1,0 +1,9 @@
+{
+	"js/mws-web.min.js": [
+		"public/js/bootstrapValidator.js"
+	],
+	"js/mws-web.min.css": [
+		"public/css/bootstrapValidator.css"
+	]
+	
+}

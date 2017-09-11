@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include mws_erp *.css
+recursive-include mws_erp *.csv
+recursive-include mws_erp *.html
+recursive-include mws_erp *.ico
+recursive-include mws_erp *.js
+recursive-include mws_erp *.json
+recursive-include mws_erp *.md
+recursive-include mws_erp *.png
+recursive-include mws_erp *.py
+recursive-include mws_erp *.svg
+recursive-include mws_erp *.txt
+recursive-exclude mws_erp *.pyc
