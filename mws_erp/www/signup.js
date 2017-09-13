@@ -10,23 +10,25 @@ window.signup = {
             var comp = $("#company").val().trim()
             var subdomain = $("#subdoman").val().trim()
             var email = $("#email").val().trim()
-            
-            console.log("***####################",name,lname,comp,subdomain,email)
             if(name.length>100 || !(name.match(/[a-z]/i)) || name.length == ""){
                 console.log("++++++=")
                  return false;
               }
         
             frappe.call({
-                method: "mws_erp.customization.customization.set_conf",
+                method: "mws_erp.www.signup.set_conf",
                 args: {
-                    "full_name": name+" "+lname ,
-                    "company_name": comp,
-                    "subdomain": subdomain,
-                    "email_address": email
+                    full_name: name + " " + lname ,
+                    company_name: comp,
+                    subdomain: subdomain,
+                    email_address: email
                 },
                 callback: function(r) {
                     if(r.message) {
+                        console.log(r.message   ,"*****88")
+                        window.location.href = location.pathname + "/success"
+                        window.location.replace("http://stackoverflow.com")
+                        // frappe.render_template(,{"data":"data"})
                     }
                 }
             });

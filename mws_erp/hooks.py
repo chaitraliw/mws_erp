@@ -96,10 +96,11 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"mws_erp.tasks.all"
-# 	],
+scheduler_events = {
+	"all": [
+		"mws_erp.customization.customization.schedule_site"
+	]
+}
 # 	"daily": [
 # 		"mws_erp.tasks.daily"
 # 	],

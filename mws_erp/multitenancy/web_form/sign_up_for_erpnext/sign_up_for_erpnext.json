@@ -18,7 +18,7 @@
  "is_standard": 1, 
  "login_required": 0, 
  "max_attachment_size": 0, 
- "modified": "2017-09-10 23:47:53.811097", 
+ "modified": "2017-09-11 23:06:02.664526", 
  "modified_by": "Administrator", 
  "module": "Multitenancy", 
  "name": "sign-up-for-erpnext", 
@@ -28,7 +28,7 @@
  "route": "sign-up-for-erpnext", 
  "show_sidebar": 1, 
  "sidebar_items": [], 
- "success_message": "You will receive mail in 10-15 min with your instance credentials ..cheers!!", 
+ "success_message": "", 
  "success_url": "/sign-up-for-erpnext", 
  "title": "Sign Up for ERPNext ", 
  "web_form_fields": [
