@@ -31,7 +31,7 @@ def setup_site(i):
 	mysql_pwd = settings.get_password('mysql_password')
 	root_pwd = settings.get_password('root_password')
 	admin_pwd = "admin"
-	site_name =  i.get('name')
+	site_name =  i.get('name')+".jackhamrr.com"
 
 	if mysql_pwd and root_pwd:
 		try:
@@ -91,7 +91,7 @@ def render_mail_template(doc):
 	return frappe.render_template("mws_erp/templates/erp.html",
 		{
 			"data":{
-				"site": doc.subdomain,
+				"site": doc.subdomain+".jackhamrr.com"  ,
 				"user_name": doc.full_name
 
 			}
