@@ -62,6 +62,10 @@ def setup_site(i):
 		except Exception, e:
 			cmd = "echo Removing Sites......... && ../bin/bench drop-site --root-password {0} {1}".format(root_pwd,site_name)
 			p = subprocess.Popen(cmd, cwd='../', shell=True, stdout=None, stderr=None)
+			error_log = frappe.new_doc("Error Log")
+			error_log.method = "setup_site"
+			error_log.error = e
+			error_log.save()
 
 
 def exec_cmd(cmd_dict, cwd='../', domain_name=None):
@@ -80,7 +84,7 @@ def send_mail(doc, settiing_doc):
 	"""Notify vendor for Subscription details"""
  	try:
 		frappe.sendmail(recipients= doc.email_address, subject="Subscription Details",
-			message=render_mail_template(settiing_doc), delayed=False)
+			message=render_mail_template(doc, settiing_doc), delayed=False)
 	except frappe.OutgoingEmailError:
 		pass 
 
@@ -91,7 +95,7 @@ def render_mail_template(doc):
 	return frappe.render_template("mws_erp/templates/erp.html",
 		{
 			"data":{
-				"site": doc.subdomain+settiing_doc.get('host')  ,
+				"site": doc.subdomain+settiing_doc.get('host'),
 				"user_name": doc.full_name
 
 			}
