@@ -89,7 +89,7 @@ def send_mail(doc, settiing_doc):
 		pass 
 
 
-def render_mail_template(doc):
+def render_mail_template(doc, settiing_doc):
 	"""template for subscription detals """
 	
 	return frappe.render_template("mws_erp/templates/erp.html",
