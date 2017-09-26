@@ -31,7 +31,7 @@ def setup_site(i):
 	mysql_pwd = settings.get_password('mysql_password')
 	root_pwd = settings.get_password('root_password')
 	admin_pwd = "admin"
-	site_name =  i.get('name')+".jackhamrr.com"
+	site_name =  i.get('name')+settings.get_password('host')
 
 	if mysql_pwd and root_pwd:
 		try:
@@ -76,11 +76,11 @@ def exec_cmd(cmd_dict, cwd='../', domain_name=None):
 		frappe.throw(_("Error while executing command : %s \n for site  : %s \n in directory %s"%(cmd, domain_name,os.getcwd())))
 
 
-def send_mail(doc):
+def send_mail(doc, settiing_doc):
 	"""Notify vendor for Subscription details"""
  	try:
 		frappe.sendmail(recipients= doc.email_address, subject="Subscription Details",
-			message=render_mail_template(doc), delayed=False)
+			message=render_mail_template(settiing_doc), delayed=False)
 	except frappe.OutgoingEmailError:
 		pass 
 
@@ -91,7 +91,7 @@ def render_mail_template(doc):
 	return frappe.render_template("mws_erp/templates/erp.html",
 		{
 			"data":{
-				"site": doc.subdomain+".jackhamrr.com"  ,
+				"site": doc.subdomain+settiing_doc.get('host')  ,
 				"user_name": doc.full_name
 
 			}
@@ -109,4 +109,4 @@ def schedule_site():
 		doc = frappe.get_doc("Site Configurations",i.get('name'))
 		doc.is_site = 1
 		doc.save()
-		send_mail(doc)
+		send_mail(doc,frappe.get_doc("Multitenancy Settings"))
