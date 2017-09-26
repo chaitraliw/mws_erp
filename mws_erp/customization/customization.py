@@ -31,7 +31,7 @@ def setup_site(i):
 	mysql_pwd = settings.get_password('mysql_password')
 	root_pwd = settings.get_password('root_password')
 	admin_pwd = "admin"
-	site_name =  i.get('name')+settings.get_password('host')
+	site_name =  i.get('name')+settings.get('host')
 
 	if mysql_pwd and root_pwd:
 		try:
