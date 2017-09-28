@@ -27,6 +27,9 @@ def create_site(doc, method):
 
 def setup_site(i):
 	"""install-app on site creation/drop-site """	
+	
+	doc = frappe.get_doc("Site Configurations",i.get('name'))
+	doc.queued = 1
 	settings = frappe.get_doc('Multitenancy Settings')
 	mysql_pwd = settings.get_password('mysql_password')
 	root_pwd = settings.get_password('root_password')
@@ -107,7 +110,7 @@ def schedule_site():
 	"""schedule sites for the req data"""
 	
 	dict_ = frappe.db.sql("""select name,full_name,email_address,company_name,is_site
-		                    from `tabSite Configurations` where is_site = '0' """,as_dict=1)
+		                    from `tabSite Configurations` where queued = '0' """,as_dict=1)
 	for i in dict_:
 		setup_site(i)
 		doc = frappe.get_doc("Site Configurations",i.get('name'))
