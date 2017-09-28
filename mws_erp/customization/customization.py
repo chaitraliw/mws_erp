@@ -30,6 +30,8 @@ def setup_site(i):
 	
 	doc = frappe.get_doc("Site Configurations",i.get('name'))
 	doc.queued = 1
+	doc.save()
+	print "******************",doc.__dict__
 	settings = frappe.get_doc('Multitenancy Settings')
 	mysql_pwd = settings.get_password('mysql_password')
 	root_pwd = settings.get_password('root_password')
