@@ -18,7 +18,7 @@
  "is_standard": 1, 
  "login_required": 0, 
  "max_attachment_size": 0, 
- "modified": "2017-09-25 12:53:16.633375", 
+ "modified": "2017-09-29 11:33:42.671626", 
  "modified_by": "Administrator", 
  "module": "Multitenancy", 
  "name": "sign-up-for-erpnext", 
@@ -28,9 +28,9 @@
  "route": "sign-up-for-erpnext", 
  "show_sidebar": 1, 
  "sidebar_items": [], 
- "success_message": "Thanks!, please check your mail after some time. You will get your domain credentials on your mail. You can login with your domain then with the given credentials. ", 
+ "success_message": "Thank You!  Please check your email in a few minutes (usually less than 5). You will get a message that has the credentials and login information for your new ERP system.", 
  "success_url": "/sign-up-for-erpnext", 
- "title": "Sign Up for ERPNext ", 
+ "title": "Sign Up for ERP system", 
  "web_form_fields": [
   {
    "fieldname": "full_name", 
