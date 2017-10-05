@@ -18,7 +18,7 @@
  "is_standard": 1, 
  "login_required": 0, 
  "max_attachment_size": 0, 
- "modified": "2017-10-05 11:14:49.544646", 
+ "modified": "2017-10-05 12:58:35.104286", 
  "modified_by": "Administrator", 
  "module": "Multitenancy", 
  "name": "sign-up-for-erpnext", 
@@ -28,7 +28,7 @@
  "route": "sign-up-for-erpnext", 
  "show_sidebar": 1, 
  "sidebar_items": [], 
- "success_message": "Thanks!, please check your mail after some time. You will get your domain credentials on your mail. You can login with your domain then with the given credentials. ", 
+ "success_message": "Thank You!  Please check your email in a few minutes (usually less than 5).  You will get a message that has the credentials and login information for your new ERP system", 
  "success_url": "/sign-up-for-erpnext", 
  "title": "Sign up for Catalyst88\u2019s ERP System", 
  "web_form_fields": [
