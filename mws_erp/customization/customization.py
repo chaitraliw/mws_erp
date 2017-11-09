@@ -8,9 +8,12 @@ from frappe import _,msgprint
 from frappe.model.document import Document
 import json
 import subprocess
+from subprocess import Popen,PIPE
 import os
 import hashlib
 import re
+import requests
+import json
 
 
 def create_site(doc, method):
@@ -43,13 +46,16 @@ def setup_site(i):
 			cmds = [                                           
 				{
 					"../bin/bench new-site --mariadb-root-password {0} --admin-password {1} {2}".format(
-					root_pwd, admin_pwd, site_name): "Creating New Site ..........: {0}".format(site_name)
+					mysql_pwd, admin_pwd, site_name): "Creating New Site ..........: {0}".format(site_name)
 				},
 				{
 					"../bin/bench --site {0} enable-scheduler".format(site_name):"***Enabling Scheduler*****"
 				},
 				{ 
 					"../bin/bench --site {0} install-app erpnext".format(site_name): "Installing ERPNext App..."
+				},
+				{ 
+					"../bin/bench --site {0} install-app site_connectivity".format(site_name): "Installing Site Connectivity App..."
 				},
 				{
 					"../bin/bench --site {0} migrate".format(site_name): "******Migrating Bench***********"

@@ -1,0 +1,20 @@
+{
+ "content": null, 
+ "creation": "2017-10-26 12:11:46.256962", 
+ "docstatus": 0, 
+ "doctype": "Page", 
+ "icon": "fa fa-tachometer", 
+ "idx": 0, 
+ "modified": "2017-11-08 18:46:12.916030", 
+ "modified_by": "Administrator", 
+ "module": "Dashboard", 
+ "name": "dashboard", 
+ "owner": "Administrator", 
+ "page_name": "Dashboard", 
+ "roles": [], 
+ "script": null, 
+ "standard": "Yes", 
+ "style": null, 
+ "system_page": 0, 
+ "title": "Dashboard"
+}

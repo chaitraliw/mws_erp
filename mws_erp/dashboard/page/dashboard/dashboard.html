@@ -1,0 +1,101 @@
+	<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-9" align="center">
+	<h2>Domain Analysis & Report</h2>
+	 </div>
+</div>
+	
+<div class = "row">
+	<div class="col-xs-12">
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<th style="text-align: center;">
+						<b>{%= __("Sr. No") %}</b>
+					</th>
+					<th style="text-align: center;">
+						<b>{%= __("Company Name") %}</b>
+					</th>
+					<th style="text-align: center;">
+						<b>{%= __("First User Name") %}</b>
+					</th>
+					<th style="text-align: center;">
+						<b>{%= __("First User Email Address") %}</b>
+					</th>
+					<th style="text-align: center;">
+						<b>{%= __("Date of Signup") %}</b>
+					</th>
+					<th style="text-align: center;">
+						<b>{%= __("Date of Last Signup Session") %}</b>
+					</th>
+					<th style="text-align: center;">
+						<b>{%= __("Count of Customer") %}</b>
+					</th>
+				</tr>
+			{% for(var i=0, l=Object.keys(data).length; i<l; i++) { %}
+				<tr>
+					<td>
+						<div style="text-align: center;">{%= i+1 %}</div>
+						
+					</td>
+					<td>
+						<div style="text-align: center;">{%= __((data[Object.keys(data)[i]])[0].company_name) %}</div>
+						
+					</td>
+					<td>
+						<div style="text-align: center;">{%= __((data[Object.keys(data)[i]])[0].full_name) %}</div>
+					</td>
+					<td>
+						<div style="text-align: center;">{%= __((data[Object.keys(data)[i]])[0].email_address) %}</div>
+					</td>
+					<td>
+						<div style="text-align: center;">
+							{% if((data[Object.keys(data)[i]])[0].is_site == 1) { %}
+								{%= (data[Object.keys(data)[i]])[0].creation %}
+							{% } %}
+						</div>
+					</td>
+					<td>
+						<div style="text-align: center;">{%= (data[Object.keys(data)[i]])[0].last_login %}</div>
+					</td>
+					<td>
+						<div style="text-align: center;">{%= (data[Object.keys(data)[i]])[0].customer_count %}</div>
+					</td>
+				</tr>
+			{% } %}
+			</tbody>
+		</table>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-9" align="center">
+	<h2>Session Details</h2>
+	 </div>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-3"></div>
+	<div class="col-xs-5">
+		<span class="fa fa-circle" style="color: #63ed31;padding-right: 6px;">
+			
+		</span>
+		<b style="font-size: 15px;">{%= __("Number Of Active Sessions") %}</b>
+	</div>
+	<div class="col-xs-1" style="font-size: 15px;">{%= session %}</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-9" align="center">
+	<h2>Storage Details</h2>
+	 </div>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-9 c3" id="space" style="height:270px"></div>
+		
+	</div>
+</div>

@@ -10,5 +10,13 @@ def get_data():
 			"icon": "octicon octicon-file-directory",
 			"type": "module",
 			"label": _("Multitenancy")
+		},
+		{
+			"module_name": "Dashboard",
+			"color": "#589494",
+			"icon": "fa fa-tachometer",
+			"type": "page",
+			"link": "dashboard",
+			"label": _("Dashboard")
 		}
 	]
