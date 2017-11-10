@@ -18,7 +18,7 @@
  "is_standard": 1, 
  "login_required": 0, 
  "max_attachment_size": 0, 
- "modified": "2017-10-05 12:58:35.104286", 
+ "modified": "2017-11-10 18:10:21.286117", 
  "modified_by": "Administrator", 
  "module": "Multitenancy", 
  "name": "sign-up-for-erpnext", 
@@ -63,13 +63,43 @@
    "reqd": 0
   }, 
   {
-   "fieldname": "subdomain", 
-   "fieldtype": "Data", 
+   "fieldname": "", 
+   "fieldtype": "Section Break", 
    "hidden": 0, 
-   "label": "Preferred Subdomain(example:-mycompany.jackhamrr.com)", 
+   "label": "", 
    "max_length": 0, 
    "max_value": 0, 
    "read_only": 0, 
+   "reqd": 0
+  }, 
+  {
+   "fieldname": "subdomain", 
+   "fieldtype": "Data", 
+   "hidden": 0, 
+   "label": "Preferred Subdomain (Please do not use dot(.))", 
+   "max_length": 0, 
+   "max_value": 0, 
+   "read_only": 0, 
+   "reqd": 0
+  }, 
+  {
+   "fieldname": "", 
+   "fieldtype": "Column Break", 
+   "hidden": 0, 
+   "label": "", 
+   "max_length": 0, 
+   "max_value": 0, 
+   "read_only": 0, 
+   "reqd": 0
+  }, 
+  {
+   "fieldname": "domain", 
+   "fieldtype": "Data", 
+   "hidden": 0, 
+   "label": "Domain", 
+   "max_length": 0, 
+   "max_value": 0, 
+   "read_only": 1, 
    "reqd": 0
   }
  ]
