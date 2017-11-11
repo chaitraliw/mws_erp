@@ -6,6 +6,7 @@ from subprocess import Popen, PIPE, STDOUT
 import subprocess
 import os 
 from frappe.installer import get_root_connection
+from frappe import _,msgprint
 from frappe.model.db_schema import DbManager
 from frappe.utils import flt, cstr, cint
 from collections import defaultdict
@@ -16,14 +17,21 @@ from collections import defaultdict
 def get_sites_data():
 	data = frappe.get_all("Site Configurations")
 	all_data = defaultdict(list)
-	for row in data:
-		conf_doc = frappe.get_doc("Site Configurations",row.get('name'))
-		if conf_doc.is_site == 1:
-			if conf_doc.email_address == conf_doc.api_user_email:
+	try:
+		for row in data:
+			conf_doc = frappe.get_doc("Site Configurations",row.get('name'))
+			if conf_doc.is_site == 1:
 				all_data[row.get('name')].append({"company_name":conf_doc.company_name,"full_name":conf_doc.full_name,
 								 "email_address":conf_doc.email_address	,"creation":conf_doc.creation,
 								 "last_login":conf_doc.last_signup,"customer_count":conf_doc.customer_count,
 								 "is_site":conf_doc.is_site})
+	except Exception, e:
+		frappe.msgprint(_("Please Wait.. Refresh after some time.."))
+		error_log = frappe.new_doc("Error Log")
+		error_log.method = "Onload Dashboard"
+		error_log.error = e
+		error_log.save()
+
 	return {"site_data":all_data}
 
 
