@@ -31,6 +31,9 @@
 					<th style="text-align: center;">
 						<b>{%= __("Count of Customer") %}</b>
 					</th>
+					<th style="text-align: center;">
+						<b>{%= __("Domain Name") %}</b>
+					</th>
 				</tr>
 			{% for(var i=0, l=Object.keys(data).length; i<l; i++) { %}
 				<tr>
@@ -60,6 +63,11 @@
 					</td>
 					<td>
 						<div style="text-align: center;">{%= (data[Object.keys(data)[i]])[0].customer_count %}</div>
+					</td>
+					<td>
+						<div>
+							<div style="text-align: center;">{%= (data[Object.keys(data)[i]])[0].domain %}</div>
+						</div>
 					</td>
 				</tr>
 			{% } %}

@@ -20,11 +20,12 @@ def get_sites_data():
 	try:
 		for row in data:
 			conf_doc = frappe.get_doc("Site Configurations",row.get('name'))
+			settings_doc = frappe.get_doc("Multitenancy Settings")
 			if conf_doc.is_site == 1:
 				all_data[row.get('name')].append({"company_name":conf_doc.company_name,"full_name":conf_doc.full_name,
 								 "email_address":conf_doc.email_address	,"creation":conf_doc.creation,
 								 "last_login":conf_doc.last_signup,"customer_count":conf_doc.customer_count,
-								 "is_site":conf_doc.is_site})
+								 "is_site":conf_doc.is_site,"domain":(conf_doc.name.lower() + settings_doc.host)})
 	except Exception, e:
 		frappe.msgprint(_("Please Wait.. Refresh after some time.."))
 		error_log = frappe.new_doc("Error Log")
